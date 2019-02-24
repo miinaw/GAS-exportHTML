@@ -5,7 +5,7 @@
 </head>
 <body m:id='CONTENT'>
   <script>
-  window.DataList= [
+  window.DataList = [
   <? var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('data');
      var category_sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('category_data');
      var dataCount = sheet.getLastRow() - 1;
@@ -19,9 +19,9 @@
         kana: <?= data[i][1] ?>,
         id: <?= data[i][2] ?>,
         image_name: <?= data[i][3] ?>,
-        category: [<? for(j = 0; j < categoryCount; j++) {
-        if ( category_data[i][j] === '◯') { ?><?= j ?>,<? } } ?>]
-      },
+        categories: ['0',<? for(j = 0; j <= categoryCount; j++) {
+        if ( category_data[i][j] === '◯') { ?><?= j + 1 ?>,<? } } ?>],
+        },
  <? } ?>
   ];
   </script>

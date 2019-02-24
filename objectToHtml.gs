@@ -14,7 +14,7 @@ function addMenu() {
 function doExportFile() {
   
   var html = HtmlService.createTemplateFromFile('data');
-  var folder_id = '';
+  var folder_id = 'フォルダID';
   var drive = DriveApp.getFolderById(folder_id);
 
   drive.createFile('data.html', html.evaluate().getContent(), "text/plain");
